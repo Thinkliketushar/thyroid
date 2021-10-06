@@ -1,0 +1,148 @@
+{% extends "main.html" %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thyroid Disease Detection</title>
+</head>
+
+<body>
+  <div id="che" , class="container">
+    <div class="row justify-content-center pb-5">
+      <div class="col-md-10 heading-section text-center ftco-animate fadeInUp ftco-animated">
+        <h1 style="font-size: 5vw;" , class="big big-2">Thyroid Detection</h1>
+        <h2 class="mb-4">Thyroid Disease Detection</h2>
+        <p>Thyroid disease is a general term for a medical condition
+          that keeps your thyroid from making the right amount of hormones. CHECK THEM!</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div style="background-color: #1a1a1a;" class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h1 style="color: red;" >{{ Prediction_text }}</h1>
+
+          <img style="width: 156px;" src="{{url_for('static', filename='img/Thyriod.png')}}" alt="">
+
+
+          <form action="{{url_for('predict')}}" method = "post">
+            <input type="text" name="name" placeholder="Enter your Name">
+            <input type="number" name="age" placeholder="Enter your Age">
+            <select name="gender">
+              <option selected disabled>Gender</option>
+              <option value="0">Female</option>
+              <option value="1">Male</option>
+            </select>
+
+            <br>
+            <br>
+
+              <p> Did you take on thyroxine treatment? :-
+                <input type="radio" name="options" value = "1" id="option1"> Yes
+                <input type="radio" name="options" value = "0" id="option2"> No <br>
+              </p>
+    
+              <p> Any Query related to onthyroxine? :-
+                <input type="radio" name="options1" value = "1" id="option1"> Yes
+                <input type="radio" name="options1" value = "0" id="option2"> No <br>
+              </p>
+              
+              <p> Did you take On antithyroid medication treatment? :-
+                <input type="radio" name="options2" value = "1" id="option1"> Yes
+                <input type="radio" name="options2" value = "0" id="option2"> No <br>
+              </p>
+  
+              <p> Are you sick? :-
+                <input type="radio" name="sick" value = "1" id="option1"> Yes
+                <input type="radio" name="sick" value = "0" id="option2"> No <br>
+              </p>
+  
+              <p> Are you pregnent. If you are women? :-
+                <input type="radio" name="options4" value = "1" id="option1"> Yes
+                <input type="radio" name="options4" value = "0" id="option2"> No <br>
+              </p>
+  
+              <p> Did you have thyriod surgery? :-
+                <input type="radio" name="options5" value = "1" id="option1"> Yes
+                <input type="radio" name="options5" value = "0" id="option2"> No <br>
+              </p>
+  
+              <p> Did you take I131 Treatment? :-
+                <input type="radio" name="options6" value = "1" id="option1"> Yes
+                <input type="radio" name="options6" value = "0" id="option2"> No <br>
+              </p>
+  
+              <p> Any query related to hypothyroid? :-
+                <input type="radio" name="options7" value = "1" id="option1"> Yes
+                <input type="radio" name="options7" value = "0" id="option2"> No <br>
+              </p>
+
+              <p> Any query related to hyperthyroid? :-
+                <input type="radio" name="options8" value = "1" id="option1"> Yes
+                <input type="radio" name="options8" value = "0" id="option2"> No <br>
+              </p>
+
+              <p> Did you take lithium Treatment? :-
+                <input type="radio" name="options9" value = "1" id="option1"> Yes
+                <input type="radio" name="options9" value = "0" id="option2"> No <br>
+              </p>
+
+              <p> Did you take Goitre Treatment? :-
+                <input type="radio" name="options10" value = "1" id="option1"> Yes
+                <input type="radio" name="options10" value = "0" id="option2"> No <br>
+              </p>
+
+              <p> Did you take tumor Treatment? :-
+                <input type="radio" name="options11" value = "1" id="option1"> Yes
+                <input type="radio" name="options11" value = "0" id="option2"> No <br>
+              </p>
+
+              <p> Did you take hypopituitary Treatment? :-
+                <input type="radio" name="options12" value = "1" id="option1"> Yes
+                <input type="radio" name="options12" value = "0" id="option2"> No <br>
+              </p>
+
+              <p> Did you take psych Treatment?:-
+                <input type="radio" name="options13" value = "1" id="option1"> Yes
+                <input type="radio" name="options13" value = "0" id="option2"> No <br>
+              </p>
+  
+              <input type="number" step="0.01" name="num1" placeholder="Enter T3 value">
+              <input type="number" step="0.01" name="num2" placeholder="Enter TT4 value">
+              <input type="number" step="0.01" name="num3" placeholder="Enter T4U value">
+              <input type="number" step="0.01" name="num4" placeholder="Enter FTI value">
+
+            <br>
+            <br>
+  
+            <select name="Referral">
+              <option selected disabled>Select Referral source</option>
+              <option value="1">SVHC</option>
+              <option value="4">other</option>
+              <option value="3">SVI</option>
+              <option value="0">STMW</option>
+              <option value="2">SVHD</option>
+
+            </select>
+                        <br><br>
+                        <button style="text-align: center; color: black; background-color: #ffbd39;" value="Predict"
+                        type="submit" class="btn btn-default">Predict</button>
+            </form> 
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+{% endblock %}
